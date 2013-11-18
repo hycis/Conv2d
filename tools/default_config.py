@@ -50,7 +50,7 @@ model_config = DD({
             'cached'                        : True,
             
             # dataset can be mnist or svhn or cifar10 or faceEmo
-            'dataset'                       : 'faceEmo',
+            'dataset'                       : 'mnist',
             
             'input_space_id'                : None,
             'nvis'                          : None,

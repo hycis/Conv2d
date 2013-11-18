@@ -1,4 +1,3 @@
-    # -*- coding: utf-8 -*-
 import theano.tensor as T
 import theano
 from theano import config
@@ -49,7 +48,8 @@ def get_dim_input(state):
         dim = dataset.X.shape[1]
     
     else:
-        print("=====", state.dataset)
+        import pdb
+        pdb.set_trace()
         raise ValueError('only mnist, cifar10 and svhn are supported for now in get_dim_input')
 
     del dataset
