@@ -126,7 +126,7 @@ if __name__=='__main__':
         # TODO: do not hardcode the common options!
         #exp_cmd = 'jobman -r cmdline mlp_training_framework.model.experimTHEANO_FLAGS=profile=True,floatX=float32ent '
         if args.record:
-            exp_cmd = 'jobman -r cmdline mlp_model.model.experiment '
+            exp_cmd = 'jobman cmdline mlp_model.model.experiment '
         else:
             exp_cmd = 'jobman cmdline mlp_model.model.experiment '
         

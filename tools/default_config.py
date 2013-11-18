@@ -230,7 +230,7 @@ model_config = DD({
                     'pool_shape'                : [3, 3],
                     'pool_stride'               : [2, 2],
                     'max_kernel_norm'           : 1.9365
-                    })
+                    }),
                     
                 'hidden2' : DD({
                     'layer_class'              : 'convRectifiedLinear',
@@ -240,7 +240,7 @@ model_config = DD({
                     'pool_shape'                : [3, 3],
                     'pool_stride'               : [2, 2],
                     'max_kernel_norm'           : 1.9365
-                    })
+                    }),
 
                 # Last (output) layer
                 'output1' : DD({
