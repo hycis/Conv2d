@@ -74,9 +74,13 @@ train = """
         }
     ]
 }
-
 """
 
 from pylearn2.config import yaml_parse
-train = yaml_parse.load(train)
-train.main_loop()
+
+def experiment(state, channel):
+    
+    train = yaml_parse.load(train)
+    train.main_loop()
+    
+    return channel.COMPLETE
