@@ -34,8 +34,7 @@ def update_irange_in_layer(layer, prev_layer_dim):
         
 def get_dim_input(state):
 
-    import pdb
-    pdb.set_trace()
+    print ('=====', state.dataset)
     if state.dataset == 'mnist':
         dataset = MNIST(which_set='test')
         dim = dataset.X.shape[1]
