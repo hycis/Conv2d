@@ -141,14 +141,14 @@ model_config = DD({
                 # tanh, sigmoid, rectifiedlinear, softmax
 
 #                First hidden layer
-#                 'hidden1' : DD({
-#                     'layer_class'           : 'rectifiedlinear',
-#                     #'dim'                   : ((100, 2000), int),
-#                     'dim'                   : 200,
-#                     'max_col_norm'          : ((0.1, 8.), float),
-#                     #'weight_decay'          : ((0.1, 7.), float),
-#                     'sparse_init'           : 15
-#                 }),
+                'hidden1' : DD({
+                    'layer_class'           : 'rectifiedlinear',
+                    #'dim'                   : ((100, 2000), int),
+                    'dim'                   : 1000,
+                    'max_col_norm'          : ((0.1, 8.), float),
+                    #'weight_decay'          : ((0.1, 7.), float),
+                    'sparse_init'           : 15
+                }),
 
 #                 First hidden layer
 #                 'hidden1' : DD({
@@ -212,35 +212,35 @@ model_config = DD({
 #                     }),
 # 		
                 #Second hidden layer
-#                 'hidden2' : DD({
-#                     'layer_class'           : 'tanh',
-#                     #'dim'                   : ((100, 2000), int),
-#                     'dim'                   : 100,
-#                     'max_col_norm'          : ((0.1, 5.), float)
-#                     #'weight_decay'          : ((1., 9.), float),
-#  
-#                 }),
-
-
-                'hidden1' : DD({
-                    'layer_class'              : 'convRectifiedLinear',
-                    'output_channels'           : 32,
-                    'irange'                    : .05,
-                    'kernel_shape'              : [7, 7],
-                    'pool_shape'                : [3, 3],
-                    'pool_stride'               : [2, 2],
-                    'max_kernel_norm'           : 1.9365
-                    }),
-                    
                 'hidden2' : DD({
-                    'layer_class'              : 'convRectifiedLinear',
-                    'output_channels'           : 32,
-                    'irange'                    : .05,
-                    'kernel_shape'              : [7, 7],
-                    'pool_shape'                : [3, 3],
-                    'pool_stride'               : [2, 2],
-                    'max_kernel_norm'           : 1.9365
-                    }),
+                    'layer_class'           : 'tanh',
+                    #'dim'                   : ((100, 2000), int),
+                    'dim'                   : 500,
+                    'max_col_norm'          : ((0.1, 5.), float)
+                    #'weight_decay'          : ((1., 9.), float),
+ 
+                }),
+
+
+#                 'hidden1' : DD({
+#                     'layer_class'              : 'convRectifiedLinear',
+#                     'output_channels'           : 32,
+#                     'irange'                    : .05,
+#                     'kernel_shape'              : '[7, 7]',
+#                     'pool_shape'                : '[3, 3]',
+#                     'pool_stride'               : '[2, 2]',
+#                     'max_kernel_norm'           : 1.9365
+#                     }),
+#                     
+#                 'hidden2' : DD({
+#                     'layer_class'              : 'convRectifiedLinear',
+#                     'output_channels'           : 32,
+#                     'irange'                    : .05,
+#                     'kernel_shape'              : '[7, 7]',
+#                     'pool_shape'                : '[3, 3]',
+#                     'pool_stride'               : '[2, 2]',
+#                     'max_kernel_norm'           : 1.9365
+#                     }),
 
                 # Last (output) layer
                 'output1' : DD({
