@@ -2,9 +2,7 @@
 import numpy as np
 from pylearn2.datasets import dense_design_matrix
 from pylearn2.datasets import control
-from pylearn2.utils import serial
-from pylearn2.utils.mnist_ubyte import read_mnist_images
-from pylearn2.utils.mnist_ubyte import read_mnist_labels
+from pylearn2.datasets.preprocessing import ZCA
 import os
 
 class FaceEmo(dense_design_matrix.DenseDesignMatrix):
@@ -12,7 +10,7 @@ class FaceEmo(dense_design_matrix.DenseDesignMatrix):
     def __init__(self, which_set, center = False,
             one_hot = False, binarize = False,
             axes=['b', 0, 1, 'c'],
-            preprocessor = None,
+            preprocessor = ZCA(),
             fit_preprocessor = False,
             fit_test_preprocessor = False):
 
@@ -26,14 +24,14 @@ class FaceEmo(dense_design_matrix.DenseDesignMatrix):
             path = os.environ['PYLEARN2_DATA_PATH'] + '/faceEmo/'
 
             if which_set == 'train':
-                X = np.load(path + 'train_X.npy')
-                y = np.load(path + 'train_y.npy')
+                X = np.load(path + 'train_X.npy').astype('float32')
+                y = np.load(path + 'train_y.npy').astype('float32')
             else:
 #                 import pdb
 #                 pdb.set_trace()
                 assert which_set == 'test'
-                X = np.load(path + 'test_X.npy')
-                y = np.load(path + 'test_y.npy')
+                X = np.load(path + 'test_X.npy').astype('float32')
+                y = np.load(path + 'test_y.npy').astype('float32')
             
             if binarize:
                 X = (X > 0.5).astype('float32')
@@ -54,4 +52,5 @@ class FaceEmo(dense_design_matrix.DenseDesignMatrix):
             assert fit_test_preprocessor is None or (fit_preprocessor == fit_test_preprocessor)
 
         if self.X is not None and preprocessor:
+            preprocessor.fit(self.X)
             preprocessor.apply(self, fit_preprocessor)
