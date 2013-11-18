@@ -189,7 +189,7 @@ class HPS:
             layers.append(layer)
         # create MLP:
         print layers
-        model = My_MLP(layers=layers,input_space=input_space,nvis=nvis,
+        model = MLP(layers=layers,input_space=input_space,nvis=nvis,
                     batch_size=self.batch_size)
         self.mlp = model
         return model
