@@ -36,8 +36,8 @@ class My_MLP(MLP):
         state = X
         train_state = X
         rval = OrderedDict()
-        #import pdb
-        #pdb.set_trace()
+        import pdb
+        pdb.set_trace()
     
         for layer in self.layers:
             ch = layer.get_monitoring_channels()
