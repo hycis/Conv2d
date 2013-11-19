@@ -1,7 +1,9 @@
 
 from pylearn2.config import yaml_parse
 
-if __name__ == '__main__':
+from pylearn2.utils import sharedX
+
+def experiment(state, channel):
 
     train = """
     !obj:pylearn2.train.Train {
@@ -82,9 +84,12 @@ if __name__ == '__main__':
     """
 
 
-    
+ 
     train = yaml_parse.load(train)
-    import pdb
-    pdb.set_trace()
+    train.algorithm.learning_rate = sharedX(state.lr, 'learning_rate')
+    train.algorithm.batch_size = state.batch_size
+    print 'learning rates', train.algorithm.learning_rate
+    print 'batch size', train.algorithm.batch_size
     train.main_loop()
     
+    return channel.COMPLETE
