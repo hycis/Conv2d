@@ -15,7 +15,7 @@ class FaceEmo(dense_design_matrix.DenseDesignMatrix):
             fit_test_preprocessor = False):
 
         self.args = locals()
-
+        print "==========IIII LOVVEEEE YOOOOOUU========"
         def dimshuffle(b01c):
             default = ('b', 0, 1, 'c')
             return b01c.transpose(*[default.index(axis) for axis in axes])

@@ -1,7 +1,7 @@
 
 from pylearn2.config import yaml_parse
 
-def experiment(state, channel):
+if __name__ == '__main__':
 
     train = """
     !obj:pylearn2.train.Train {
@@ -84,6 +84,7 @@ def experiment(state, channel):
 
     
     train = yaml_parse.load(train)
+    import pdb
+    pdb.set_trace()
     train.main_loop()
     
-    return channel.COMPLETE
