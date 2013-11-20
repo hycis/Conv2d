@@ -65,7 +65,7 @@ def experiment(state, channel):
                 ]
             },
             termination_criterion: !obj:pylearn2.termination_criteria.MonitorBased {
-                channel_name: "valid_y_misclass",
+                channel_name: "valid_y_nll",
                 prop_decrease: 0.,
                 N: 10
             }
